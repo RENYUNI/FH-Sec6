@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import PropTypes from 'prop-types'
+import AgregarCategoria from './componentes/AgregarCategoria'
 
 const GifExpertApp = props => {
 
@@ -12,6 +13,7 @@ const GifExpertApp = props => {
     return (
         <>
            <h2>GifExpertApp</h2> 
+           <AgregarCategoria />
            <hr/>
 
             <button onClick={ agregar }>Agregar</button>
