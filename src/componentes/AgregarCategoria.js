@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
+import PropTypes from 'prop-types'
 
-const AgregarCategoria = props => {
+const AgregarCategoria = ( { cat } ) => {
 
-    const [valorInput, setValorInput] = useState('Hola Mundo')
+    const [valorInput, setValorInput] = useState('')
 
     const cambiar = (e) => {
         setValorInput( e.target.value )
@@ -10,7 +11,10 @@ const AgregarCategoria = props => {
 
     const enviar = (e) => {
         e.preventDefault()
-        console.log('Se envió: ' + valorInput)  
+        if (valorInput !== '') {
+            cat(arg=>[...arg, valorInput])
+            setValorInput('')
+        } 
     }
 
     return (
@@ -23,6 +27,10 @@ const AgregarCategoria = props => {
         </form>
         
     )
+}
+
+AgregarCategoria.propTypes = {
+    cat: PropTypes.func.isRequired
 }
 
 export default AgregarCategoria
