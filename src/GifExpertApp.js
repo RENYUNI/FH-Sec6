@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
 import AgregarCategoria from './componentes/AgregarCategoria'
+import GifMalla from './componentes/GifMalla'
 
 const GifExpertApp = () => {
 
-    const [categorias, setCategorias] = useState( ['One Punch', 'Samurai X', 'Dragon Ball'])
+    const [categorias, setCategorias] = useState( ['One Punch', 'Inuyasha'])
 
     return (
         <>
@@ -12,7 +13,14 @@ const GifExpertApp = () => {
            <hr/>
 
             <ol>
-               { categorias.map(e => <li key={ e }>{ e }</li>)}
+               { 
+                    categorias.map(e => 
+                        <GifMalla
+                            key = { e }
+                            atributo = { e }
+                        />
+                    )
+                }
             </ol>
         </>
     )
