@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { getGifs } from '../apoyos/getGifs'
 import GifMallaItem from './GifMallaItem'
 
 const GifMalla = ( { atributo } ) => {
@@ -6,25 +7,8 @@ const GifMalla = ( { atributo } ) => {
    const [imagenes, setImagenes] = useState([])
 
     useEffect( () => {
-        getGifs()
-    }, [] )
-
-    const getGifs = async () => {
-        const url = `https://api.giphy.com/v1/gifs/search?q=${ encodeURI(atributo) }&limit=10&api_key=Q2QGdfEPvD3rj4aBVrNFQFPjnwHFhmHK`
-        const respuesta = await fetch(url)
-        const datos = await respuesta.json()
-        const { data } = datos
-
-        const gifs = data.map( e =>{
-            return {
-                id: e.id,
-                titulo: e.title,
-                url: e.images.downsized_medium.url,
-            }
-        })
-
-        setImagenes(gifs)
-    }
+        getGifs( atributo ).then( setImagenes )
+    }, [ atributo ] )
 
     return (
         <>
