@@ -4,7 +4,7 @@ import GifMalla from './componentes/GifMalla'
 
 const GifExpertApp = () => {
 
-    const [categorias, setCategorias] = useState( ['One Punch', 'Inuyasha'])
+    const [categorias, setCategorias] = useState( ['One Punch'])
 
     return (
         <>

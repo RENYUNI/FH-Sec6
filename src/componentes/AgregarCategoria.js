@@ -12,7 +12,7 @@ const AgregarCategoria = ( { cat } ) => {
     const enviar = (e) => {
         e.preventDefault()
         if (valorInput !== '') {
-            cat(arg=>[...arg, valorInput])
+            cat(arg=>[valorInput, ...arg, ])
             setValorInput('')
         } 
     }

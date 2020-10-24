@@ -10,7 +10,7 @@ const GifMalla = ( { atributo } ) => {
     }, [] )
 
     const getGifs = async () => {
-        const url = 'https://api.giphy.com/v1/gifs/search?q=Rick+and+Morty&limit=10&api_key=Q2QGdfEPvD3rj4aBVrNFQFPjnwHFhmHK'
+        const url = `https://api.giphy.com/v1/gifs/search?q=${ encodeURI(atributo) }&limit=10&api_key=Q2QGdfEPvD3rj4aBVrNFQFPjnwHFhmHK`
         const respuesta = await fetch(url)
         const datos = await respuesta.json()
         const { data } = datos
