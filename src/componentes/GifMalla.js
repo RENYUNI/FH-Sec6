@@ -29,14 +29,17 @@ const GifMalla = ( { atributo } ) => {
     return (
         <>
             <h3> { atributo } </h3>  
-            { 
-                imagenes.map( e => 
-                    <GifMallaItem 
-                        key = { e.id } 
-                        { ...e }
-                    />
-                ) 
-            }
+            <div className="malla-tarjeta">
+                { 
+                    imagenes.map( e => 
+                        <GifMallaItem 
+                            key = { e.id } 
+                            { ...e }
+                        />
+                    ) 
+                }
+            </div>
+            
         </>
     )
 }
