@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import GifMallaItem from './GifMallaItem'
 
 const GifMalla = ( { atributo } ) => {
 
@@ -28,13 +29,14 @@ const GifMalla = ( { atributo } ) => {
     return (
         <>
             <h3> { atributo } </h3>  
-            <ol>
-                { 
-                    imagenes.map( ({id, titulo}) => 
-                        <li key= {id}> {titulo} </li>
-                    ) 
-                }
-            </ol>
+            { 
+                imagenes.map( e => 
+                    <GifMallaItem 
+                        key = { e.id } 
+                        { ...e }
+                    />
+                ) 
+            }
         </>
     )
 }
