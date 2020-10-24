@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 
 const GifMalla = ( { atributo } ) => {
-    
-    const [contador, setContador] = useState(0)
+
+   const [imagenes, setImagenes] = useState([])
 
     useEffect( () => {
         getGifs()
@@ -22,14 +22,19 @@ const GifMalla = ( { atributo } ) => {
             }
         })
 
-        console.log(gifs)
+        setImagenes(gifs)
     }
-    
+
     return (
         <>
-            <h3> { atributo } </h3>
-            <h3> { contador } </h3>
-            <button onClick={()=>setContador(contador+1)}>+1</button>
+            <h3> { atributo } </h3>  
+            <ol>
+                { 
+                    imagenes.map( ({id, titulo}) => 
+                        <li key= {id}> {titulo} </li>
+                    ) 
+                }
+            </ol>
         </>
     )
 }
