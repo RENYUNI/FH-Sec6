@@ -8,9 +8,9 @@ const GifMalla = ( { atributo } ) => {
 
     return (
         <>
-            <h3> { atributo } </h3>  
+            <h3 className="animate__animated animate__fadeIn"> { atributo } </h3>  
 
-            { cargando && <p> Cargando ... </p> }
+            { cargando && <p className="animate__animated animate__flash"> Cargando ... </p> }
 
             <div className="malla-tarjeta">
                 { 

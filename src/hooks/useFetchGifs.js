@@ -12,14 +12,12 @@ export const useFetchGifs = ( atributo ) => {
 
     useEffect(() => {
         getGifs( atributo ).then(( p )=>{
-            setTimeout(() => {
-                setstate(
-                    {
-                        datos: p,
-                        cargando: false,
-                    }
-                )
-            }, 3000);
+            setstate(
+                {
+                    datos: p,
+                    cargando: false,
+                }
+            )
         }
        )
     }, [ atributo ])
