@@ -1,33 +1,27 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { useFetchGifs } from '../hooks/useFetchGifs'
-// import { getGifs } from '../apoyos/getGifs'
-// import GifMallaItem from './GifMallaItem'
+import GifMallaItem from './GifMallaItem'
 
 const GifMalla = ( { atributo } ) => {
 
-    // const [imagenes, setImagenes] = useState([])
-
-    const { cargando } = useFetchGifs()
-
-    // useEffect( () => {
-    //     getGifs( atributo ).then( setImagenes )
-    // }, [ atributo ] )
+    const { datos, cargando } = useFetchGifs( atributo )
 
     return (
         <>
             <h3> { atributo } </h3>  
 
-            { cargando ? 'Cargando ...' : 'Datos cargados' }
-            {/* <div className="malla-tarjeta">
+            { cargando && <p> Cargando ... </p> }
+
+            <div className="malla-tarjeta">
                 { 
-                    imagenes.map( e => 
+                    datos.map( e => 
                         <GifMallaItem 
                             key = { e.id } 
                             { ...e }
                         />
                     ) 
                 }
-            </div> */}
+            </div>
             
         </>
     )

@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { getGifs } from '../apoyos/getGifs'
 
-export const useFetchGifs = () => {
+export const useFetchGifs = ( atributo ) => {
     
     const [state, setstate] = useState(
         {
@@ -9,12 +10,19 @@ export const useFetchGifs = () => {
         }
     )
 
-    setTimeout(()=>{
-        setstate({
-            datos: [1, 2, 3, 4, 5],
-            cargando: false,
-        })
-    }, 3000)
+    useEffect(() => {
+        getGifs( atributo ).then(( p )=>{
+            setTimeout(() => {
+                setstate(
+                    {
+                        datos: p,
+                        cargando: false,
+                    }
+                )
+            }, 3000);
+        }
+       )
+    }, [ atributo ])
     
     return state
 }
